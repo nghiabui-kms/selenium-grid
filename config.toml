@@ -1,0 +1,12 @@
+[docker]
+url = "http://127.0.0.1:2375"
+
+[[docker.configs]]
+image = "selenium/node-chrome:137.0-chromedriver-137.0-grid-4.34.0-20250727"
+[docker.configs.stereotype]
+browserName = "chrome"
+
+[[docker.configs]]
+image = "selenium/node-firefox:136.0.4-geckodriver-0.36.0-grid-4.34.0-20250717"
+[docker.configs.stereotype]
+browserName = "firefox"
