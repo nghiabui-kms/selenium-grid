@@ -11,6 +11,12 @@ services:
     environment:
     - SE_GRID_BROWSER_TIMEOUT=300    # Timeout browser nếu bị treo
     - SE_SESSION_REQUEST_TIMEOUT=300 # Timeout khi request session mới
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/status"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
     networks:
       - selenium-grid
 
@@ -18,7 +24,7 @@ services:
     image: selenium/node-chrome:137.0-chromedriver-137.0-grid-4.34.0-20250727
     container_name: chrome-node
     shm_size: 2gb
-    depends_on: 
+    depends_on:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
@@ -29,6 +35,12 @@ services:
       - SE_NODE_SESSION_TIMEOUT=120      # <--- Kill session nếu idle 300s
       - SE_NODE_HEARTBEAT_PERIOD=30      # <--- Báo cáo về hub mỗi 30s
       - SE_DRAIN_AFTER_SESSION_COUNT=10  # <--- Restart node sau mỗi 10 session để clear RAM
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5555/status"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
     networks:
       - selenium-grid
 
@@ -36,7 +48,7 @@ services:
     image: selenium/node-chrome:132.0-chromedriver-132.0-grid-4.34.0-20250727
     container_name: chrome-node-version-132
     shm_size: 2gb
-    depends_on: 
+    depends_on:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
@@ -47,6 +59,12 @@ services:
       - SE_NODE_SESSION_TIMEOUT=300
       - SE_NODE_HEARTBEAT_PERIOD=30
       - SE_DRAIN_AFTER_SESSION_COUNT=10
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5555/status"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
     networks:
       - selenium-grid
 
@@ -54,7 +72,7 @@ services:
     image: selenium/node-firefox:136.0.4-geckodriver-0.36.0-grid-4.34.0-20250717
     container_name: firefox-node
     shm_size: 2gb
-    depends_on: 
+    depends_on:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
@@ -65,6 +83,12 @@ services:
       - SE_NODE_SESSION_TIMEOUT=300
       - SE_NODE_HEARTBEAT_PERIOD=30
       - SE_DRAIN_AFTER_SESSION_COUNT=10
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5555/status"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
     networks:
       - selenium-grid
 
@@ -78,6 +102,12 @@ services:
       - ./htpasswd:/etc/nginx/.htpasswd:ro
     depends_on:
       - selenium-hub
+    healthcheck:
+      test: ["CMD", "curl", "-u seleniumuser:Nghia1809%40", "-f", "http://localhost:8444"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
     networks:
       - selenium-grid
 
