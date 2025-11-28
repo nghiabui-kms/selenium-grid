@@ -72,17 +72,18 @@ services:
     networks: ["selenium-grid"]
     privileged: true
     volumes:
-      - ./config.toml:/opt/selenium/docker.toml:ro
+      # - ./config.toml:/opt/selenium/docker.toml:ro
       - ./assets:/opt/selenium/assets
       - /var/run/docker.sock:/var/run/docker.sock # <<-- bắt buộc để node-docker spawn containers
     environment:
       - SE_EVENT_BUS_HOST=event-bus
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=50
+      - SE_NODE_MAX_SESSIONS=1
       # Cho phép noVNC (Live View) không yêu cầu password (xem phần giải thích)
       - SE_VNC_NO_PASSWORD=true
       - SE_NODE_DOCKER_CONFIG_FILENAME=docker.toml
+      - SE_NODE_REUSE_CONTAINERS=false 
     depends_on:
       - event-bus
       - router

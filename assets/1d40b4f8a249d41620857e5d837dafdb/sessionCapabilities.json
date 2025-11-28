@@ -1,0 +1,48 @@
+{
+  "se:options": {
+    "labels": [
+      "custom-node=chrome-132"
+    ]
+  },
+  "chrome": {
+    "chromedriverVersion": "142.0.7444.59 (4b8153ab58d3c3f4c9f7e4baad9616ecf80db5fa-refs\u002fbranch-heads\u002f7444_52@{#4})",
+    "userDataDir": "\u002ftmp\u002f.org.chromium.Chromium.scoped_dir.JMjkzt"
+  },
+  "unhandledPromptBehavior": "dismiss and notify",
+  "networkConnectionEnabled": false,
+  "setWindowRect": true,
+  "se:deleteSessionOnUi": true,
+  "webauthn:extension:largeBlob": true,
+  "timeouts": {
+    "implicit": 0,
+    "pageLoad": 300000,
+    "script": 30000
+  },
+  "proxy": {
+  },
+  "webauthn:extension:credBlob": true,
+  "se:bidiEnabled": false,
+  "se:vncLocalAddress": "ws:\u002f\u002f172.18.0.8:7900",
+  "acceptInsecureCerts": false,
+  "pageLoadStrategy": "normal",
+  "se:noVncPort": 7900,
+  "webauthn:extension:prf": true,
+  "platformName": "linux",
+  "se:forwardCdp": "ws:\u002f\u002f172.18.0.8:4444\u002fsession\u002f1d40b4f8a249d41620857e5d837dafdb\u002fse\u002ffwd",
+  "goog:processID": 206,
+  "browserName": "chrome",
+  "fedcm:accounts": true,
+  "se:cdpVersion": "142.0.7444.59",
+  "browserVersion": "142.0.7444.59",
+  "strictFileInteractability": false,
+  "webauthn:extension:minPinLength": true,
+  "goog:chromeOptions": {
+    "debuggerAddress": "localhost:40139"
+  },
+  "se:cdp": "ws:\u002f\u002f172.18.0.8:4444\u002fsession\u002f1d40b4f8a249d41620857e5d837dafdb\u002fse\u002fcdp",
+  "webauthn:virtualAuthenticators": true,
+  "se:containerName": "ba1d2c799ead",
+  "se:vnc": "ws:\u002f\u002f172.18.0.8:4444\u002fsession\u002f1d40b4f8a249d41620857e5d837dafdb\u002fse\u002fvnc",
+  "se:vncEnabled": true,
+  "se:downloadsEnabled": true
+}
